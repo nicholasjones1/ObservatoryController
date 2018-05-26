@@ -59,7 +59,7 @@ class BoltwooldWeatherSensorTest(unittest.TestCase):
     def test_closedome(self):
         logging.basicConfig(filename='ObservatoryControllerTesting.log', level=logging.DEBUG)
 
-        filePath = os.path.join('../../../../', 'resources/aag-cloudwatcher/aag_sld_alert.dat')
+        filePath = os.path.join('../../../../', 'resources/aag-cloudwatcher/aag_sld_closedome.dat')
 
         sensor = BoltwooldWeatherSensor(filePath)
         weatherData = sensor.getWeatherData()
