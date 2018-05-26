@@ -1,7 +1,10 @@
+from abc import ABC, abstractmethod
+
+
 class WeatherSensor(ABC):
 
-    @staticmethod
     @abstractmethod
     def getWeatherData(self):
-        print("Some implementation!")
+        pass
+
 #end class

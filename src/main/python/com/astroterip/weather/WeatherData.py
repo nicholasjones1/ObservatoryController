@@ -1,71 +1,90 @@
-from enum import Enum
+from enum import Enum, IntEnum
 
 
 class TempUnit(Enum):
-    C = 'C' # Celsius
-    F = 'F' # Fahrenheit
-#end class
+    C = 'C'  # Celsius
+    F = 'F'  # Fahrenheit
+
+
+# end class
 
 class RainFlag(Enum):
     DRY = '0'
     LAST_MINUTE = '1'
     RAINING = '2'
-#end class
+
+
+# end class
 
 class WetFlag(Enum):
     DRY = '0'
     LAST_MINUTE = '1'
     WET = '2'
-#end class
+
+
+# end class
 
 class VelocityUnit(Enum):
-   K = 'K' # Km/hr
-   M = 'M' # Miles/hr
-#end case
+    K = 'K'  # Km/hr
+    M = 'M'  # Miles/hr
+
+
+# end case
 
 class WindSpeedErrorCode(Enum):
-    C = "-1" # TODO
-#end class
+    C = "-1"  # TODO
+
+
+# end class
 
 class CloudCondition(Enum):
-   Unknown = '0'
-   Clear = '1'
-   Cloudy = '2'
-   VeryCloudy = '3'
-#end class
+    Unknown = '0'
+    Clear = '1'
+    Cloudy = '2'
+    VeryCloudy = '3'
+
+
+# end class
 
 class WindCondition(Enum):
     Unknown = '0'
     Calm = '1'
     Windy = '2'
     VeryWindy = '3'
-#end class
+
+
+# end class
 
 class RainCondition(Enum):
     Unknown = '0'
     Dry = '1'
-    Wet = '2'   # sensor has water on it
+    Wet = '2'  # sensor has water on it
     Rain = '3'  # falling rain drops detected
-#end class
+
+
+# end class
 
 class DayCondition(Enum):
     Unknown = '0'
-     # Below are based upon thresholds set in the setup window.
+    # Below are based upon thresholds set in the setup window.
     Dark = '1'
     Light = '2'
     VeryLight = '3'
-#end class
+
+
+# end class
 
 class DomeClose(Enum):
     NotRequested = '0'
     Requested = '1'
 
+
 class WeatherData:
     def __init__(self):
         self.date = ""
-        self.time =""
-        self.temp = TempUnit.C
-        self.velcityUnits = VelocityUnit.K
+        self.time = ""
+        self.tempUnit = TempUnit.C
+        self.velocityUnits = VelocityUnit.K
         self.skyAmbientTemp = 0
         self.ambientTemp = 0
         self.sensorCaseTemp = 0
@@ -83,6 +102,9 @@ class WeatherData:
         self.dayCondition = DayCondition.Unknown
         self.domeCloseRequested = True
         self.alert = True
+
+    def __str__(self):
+        return "date: " + self.date + " time:" + self.time + " tempUnit:" + self.tempUnit.name
 
 # end class
 
